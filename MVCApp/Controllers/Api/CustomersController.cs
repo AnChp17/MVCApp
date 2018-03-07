@@ -75,17 +75,17 @@ namespace MVCApp.Controllers.Api
 
         // DELETE api/customer
 
-        public IHttpActionResult DeleteCustomer(Customer customer)
+        public IHttpActionResult DeleteCustomer(int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var customerInDb = _context.Customers.SingleOrDefault(c => c.ID == customer.ID);
+            var customerInDb = _context.Customers.SingleOrDefault(c => c.ID == id);
 
             if (customerInDb == null)
                 return NotFound();
 
-            _context.Customers.Remove(customer);
+            _context.Customers.Remove(customerInDb);
             _context.SaveChanges();
 
             return Ok();

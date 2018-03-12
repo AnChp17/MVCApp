@@ -23,6 +23,7 @@ namespace MVCApp.Controllers
             _context.Dispose();
         }
 
+        
         // GET: Customers
         public ViewResult Index()
         {

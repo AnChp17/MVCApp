@@ -20,6 +20,7 @@ namespace MVCApp.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
+        
         // GET api/customers
         public IHttpActionResult GetCustomers()
         {

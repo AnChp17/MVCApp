@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Globalization;
+using Microsoft.AspNet.Identity;
+using System.Globalization;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using MVCApp.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -156,7 +157,8 @@ namespace MVCApp.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    DrivingLicence = model.DrivingLicence
+                    DrivingLicence = model.DrivingLicence,
+                    Phone = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -374,7 +376,13 @@ namespace MVCApp.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    DrivingLicence = model.DrivingLicense
+                };
+                
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

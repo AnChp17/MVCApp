@@ -13,7 +13,7 @@ namespace MVCApp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201804011912423_AddNumberAvailableToMovie"; }
+            get { return "201804012057050_AddNumberAvailableToMovie"; }
         }
         
         string IMigrationMetadata.Source

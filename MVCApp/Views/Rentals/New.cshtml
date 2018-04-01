@@ -91,11 +91,11 @@
                     method: "post",
                     data: vm
                 })
-                .done(function () {
-                    console.log("done");
+                    .done(function () {
+                        toastr.success("Rentals successfully recorded.")
                 })
-                .fail(function () {
-
+                    .fail(function () {
+                        toastr.error("Something unexpected happend.")
                 });
             });
         });
